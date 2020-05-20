@@ -16,8 +16,8 @@ units="0 1 2 3 4 5 6 7 8 9 10 11" #"${1}"
 xy=0
 
 # Net
-net_weights="nets/googlenet/HOwt_png_vgg_A_bn_iter_130000.caffemodel"
-net_definition="nets/DeepYeast/HOwt_png_vgg_A_bn.prototxt"
+net_weights="nets/DeepYeast/HOwt_png_vgg_A_bn_iter_130000.caffemodel"
+net_definition="nets/DeepYeast/HOwt_png_vgg_A_bn_deploy.prototxt"
 
 # Hyperparam settings for visualizing VGGNet
 # Note that the learnign rate is different from that for AlexNet

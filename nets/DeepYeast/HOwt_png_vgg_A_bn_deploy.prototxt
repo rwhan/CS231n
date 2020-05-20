@@ -1,37 +1,10 @@
 name: "HOwt_png_quick"
-layer {
-  name: "control"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TRAIN
-  }
-  transform_param {
-    mean_file: "data/HOwt_png_train_mean.binaryproto"
-  }
-  data_param {
-    source: "data/HOwt_png_train_lmdb"
-    batch_size: 100
-    backend: LMDB
-  }
-}
-layer {
-  name: "control"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TEST
-  }
-  transform_param {
-    mean_file: "data/HOwt_png_train_mean.binaryproto"
-  }
-  data_param {
-    source: "data/HOwt_png_val_lmdb"
-    batch_size: 100
-    backend: LMDB
-  }
+input: "data"
+input_shape {
+  dim: 100
+  dim: 3
+  dim: 64
+  dim: 64
 }
 layer {
   name: "conv1_1"
@@ -46,9 +19,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    bias_filler {
-      type: "constant"
-    }
+    bias_term: false
   }
 }
 layer {
@@ -394,19 +365,8 @@ layer {
   }
 }
 layer {
-  name: "accuracy"
-  type: "Accuracy"
+  name: "prob"
+  type: "Softmax"
   bottom: "ip3"
-  bottom: "label"
-  top: "accuracy"
-  include {
-    phase: TEST
-  }
-}
-layer {
-  name: "loss"
-  type: "SoftmaxWithLoss"
-  bottom: "ip3"
-  bottom: "label"
-  top: "loss"
+  top: "prob"
 }
