@@ -1,0 +1,12 @@
+Cell periphery 0
+Cytoplasm 1
+Endosome 2
+ER 3
+Golgi 4
+Mitochondrion 5
+Nuclear periphery 6
+Nucleolus 7
+Nucelus 8
+Peroxisome 9
+Spindle pole 10
+Vacuole 11
